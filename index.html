@@ -1,0 +1,996 @@
+<html lang="en" class="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Web Design Mastery | furni.shop</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      :root {
+        --primary-color: #254d4d;
+        --text-dark: #171717;
+        --text-light: #737373;
+        --extra-light: #f4f6f5;
+        --white: #ffffff;
+        --max-width: 1200px;
+        --header-font: "Merriweather", serif;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 5rem 1rem;
+      }
+
+      .section__header {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        font-family: var(--header-font);
+        color: var(--primary-color);
+      }
+
+      .section__description {
+        font-size: 1.1rem;
+        color: var(--text-light);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: var(--header-font);
+      }
+
+      img {
+        display: flex;
+        width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      html,
+      body {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        position: fixed;
+        isolation: isolate;
+        width: 100%;
+        max-width: var(--max-width);
+        margin-inline: auto;
+        z-index: 9;
+      }
+
+      .nav__header {
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--primary-color);
+      }
+
+      .nav__logo .logo {
+        color: var(--white);
+      }
+
+      .nav__menu__btn {
+        font-size: 1.5rem;
+        color: var(--white);
+        cursor: pointer;
+      }
+
+      .nav__links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: var(--primary-color);
+        transition: 0.5s;
+        z-index: -1;
+        transform: translateY(-100%);
+      }
+
+      .nav__links.open {
+        transform: translateY(0);
+      }
+
+      .nav__links a {
+        font-weight: 500;
+        color: var(--white);
+      }
+
+      .nav__search {
+        display: none;
+      }
+
+      .header__container {
+        display: grid;
+        overflow: hidden;
+      }
+
+      .header__image {
+        grid-area: 1/1/2/2;
+      }
+
+      .header__image img {
+        max-width: 900px;
+        margin-left: auto;
+      }
+
+      .header__content {
+        grid-area: 1/1/2/2;
+        display: flex;
+        align-items: center;
+      }
+
+      .header__content > div {
+        max-width: 500px;
+        padding: 4rem 1rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+      }
+
+      .header__content h1 {
+        margin-bottom: 1rem;
+        font-size: 4rem;
+        font-weight: 600;
+        font-family: var(--header-font);
+        color: var(--primary-color);
+      }
+
+      .header__content p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+      }
+
+      .deals__container {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .deals__card span {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+      }
+
+      .deals__card h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .deals__card p {
+        color: var(--text-light);
+      }
+
+      .about__header {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .about__header .section__description {
+        max-width: 600px;
+      }
+
+      .about__btn {
+        width: fit-content;
+        padding: 0.75rem 1.5rem;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        color: var(--white);
+        white-space: nowrap;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .about__content {
+        margin-top: 2rem;
+        display: grid;
+        gap: 2rem;
+      }
+
+      .about__grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .about__image {
+        overflow: hidden;
+      }
+
+      .about__card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .about__card h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .about__card p {
+        color: var(--text-light);
+      }
+
+      .product__grid {
+        margin-top: 4rem;
+        display: grid;
+        gap: 2rem;
+      }
+
+      .product__card {
+        position: relative;
+        isolation: isolate;
+        padding: 2rem;
+      }
+
+      .product__card::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65%;
+        background-color: var(--extra-light);
+        z-index: -1;
+        transition: 0.3s;
+      }
+
+      .product__card::before {
+        height: 100%;
+      }
+
+      .product__card h4 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .product__card p {
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        color: var(--text-light);
+      }
+
+      .product__card img {
+        max-width: 275px;
+        margin-inline: auto;
+      }
+
+      .client__content {
+        padding: 4rem 1rem;
+        background-color: var(--extra-light);
+        border-radius: 1rem;
+      }
+
+      .client__content :is(.section__header, .section__description) {
+        max-width: 550px;
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .client__content .section__header {
+        font-size: 3.25rem;
+      }
+
+      .swiper {
+        margin-top: 4rem;
+        width: 100%;
+      }
+
+      .client__card {
+        display: grid;
+        gap: 2rem;
+        max-width: 750px;
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .client__card img {
+        max-width: 250px;
+        margin-inline: auto;
+      }
+
+      .client__card p {
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        color: var(--text-light);
+        font-style: italic;
+      }
+
+      .client__card h4 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .client__card h5 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-light);
+      }
+
+      .footer {
+        background-color: var(--primary-color);
+      }
+
+      .footer__container {
+        display: grid;
+        gap: 4rem 2rem;
+      }
+
+      .footer__logo {
+        margin-bottom: 1rem;
+      }
+
+      .footer__logo .logo {
+        color: var(--white);
+      }
+
+      .footer__col p {
+        margin-bottom: 2rem;
+        color: var(--extra-light);
+        opacity: 0.8;
+      }
+
+      .footer__socials {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer__socials a {
+        font-size: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer__socials a:hover {
+        opacity: 0.5;
+      }
+
+      .footer__col h4 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--white);
+      }
+
+      .footer__links {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .footer__links a {
+        color: var(--extra-light);
+        opacity: 0.8;
+      }
+
+      .footer__links a:hover {
+        opacity: 1;
+      }
+
+      .footer__bar {
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: var(--extra-light);
+        opacity: 0.8;
+        text-align: center;
+      }
+
+      @media (width > 540px) {
+        .deals__container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .product__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer__container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (width > 768px) {
+        nav {
+          position: static;
+          padding: 2rem 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+        }
+
+        .nav__header {
+          flex: 1;
+          padding: 0;
+          background-color: transparent;
+        }
+
+        .nav__menu__btn {
+          display: none;
+        }
+
+        .nav__logo .logo {
+          color: var(--primary-color);
+        }
+
+        .nav__links {
+          position: static;
+          padding: 0;
+          width: fit-content;
+          flex-direction: row;
+          gap: 3rem;
+          background-color: transparent;
+          transform: none;
+        }
+
+        .nav__links a {
+          color: var(--text-dark);
+        }
+
+        .nav__links a:hover {
+          color: var(--primary-color);
+        }
+
+        .nav__search {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 1rem;
+        }
+
+        .nav__search input {
+          padding-block: 5px;
+          outline: none;
+          border: none;
+          width: 0;
+          font-size: 1rem;
+          color: var(--text-dark);
+          border-bottom: 1px solid var(--text-light);
+          transition: 0.3s;
+        }
+
+        .nav__search.open input {
+          width: 100%;
+          max-width: 15rem;
+        }
+
+        .nav__search span {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: var(--text-dark);
+          cursor: pointer;
+        }
+
+        .header__container {
+          padding-top: 0;
+        }
+
+        .deals__container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .deals__card:nth-child(1) {
+          grid-column: 1/4;
+        }
+
+        .about__header {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .about__content {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+        }
+
+        .about__image {
+          grid-area: 1/2/2/3;
+        }
+
+        .product__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .client__card {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          text-align: left;
+        }
+
+        .footer__container {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (width > 1024px) {
+        .deals__container {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .deals__card:nth-child(1) {
+          grid-column: unset;
+        }
+
+        .about__grid {
+          gap: 4rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body style="height: 100%">
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">vathana.shop</a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#product">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav__search" id="nav-search">
+        <input type="text" placeholder="Search" />
+        <span><i class="ri-search-2-line"></i></span>
+      </div>
+    </nav>
+
+    <header class="section__container header__container" id="home">
+      <div class="header__image">
+        <img
+          src="https://media-hosting.imagekit.io//9e6205464e19432f/header.jpg?Expires=1734354183&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=10yeo7cRcSACvktnm5LHq~8SH80VpsCUkY9Q8gHcqiHDNK9CiXrrwY3fq4H-lGKzzi71HOuLJXcaTbReL3I9r3KkiJGmkqQVxAvK4YWSwcwKX~Y9Aqh9I84WbxqjtJyKpFg11kWxbQm5~W9SHgY~5WhVZED4k40e42Dblvgr3J-qaJAYqNz2g1evG2-w96M4tECGUgFZYk3he~xtS0wCiZPx9C0dPSKZQ7vgB-6RcPIXfi0rgFFAryW-j9CzBiZtdMwbqiy3aI-5kXhzsDQhV57FmYnr1p8bJmQ3qsdkokBf1DvR3wKuTZmEcnbymvBcm6wmvhcDEiSVm5AwxG7hpw__"
+          alt="header"
+        />
+      </div>
+      <div class="header__content">
+        <div>
+          <h1>Welcome to vathana.shop</h1>
+          <p>
+            💖 Explore our collections and let us help you find exactly what you
+            need. Thank you for choosing [Your Shop Name]. We’re here to serve
+            you with care, speed, and quality! Happy Shopping! 🛍️
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section__container deals__container">
+      <div class="deals__card">
+        <h2 class="section__header">Hot 🔥 deals for you</h2>
+        <p>Online shopping for retail sales direct to consumers</p>
+      </div>
+      <div class="deals__card">
+        <span><i class="ri-cash-line"></i></span>
+        <h4>1.5% cashback</h4>
+        <p>Earn a 5% cashback reward on every furniture purchase you make!</p>
+      </div>
+      <div class="deals__card">
+        <span><i class="ri-calendar-schedule-line"></i></span>
+        <h4>30 day terms</h4>
+        <p>
+          Take advantage of our 30-day payment terms, completely interest-free!
+        </p>
+      </div>
+      <div class="deals__card">
+        <span><i class="ri-money-rupee-circle-line"></i></span>
+        <h4>Save money</h4>
+        <p>
+          Discover unbeatable prices and save big money on top-quality
+          furniture!
+        </p>
+      </div>
+    </section>
+
+    <section class="section__container about__container" id="about">
+      <div class="about__header">
+        <div>
+          <h2 class="section__header">About us</h2>
+          <p class="section__description">
+            Our passion for exceptional craftsmanship drives us to curate the
+            best pieces for every room in your house.
+          </p>
+        </div>
+        <button class="about__btn">Learn More</button>
+      </div>
+      <div class="about__content">
+        <div class="about__image">
+          <img
+            src="https://media-hosting.imagekit.io//2812d21961d145b8/about.png?Expires=1734353924&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=CjGheiE6S~yj4B-pY8riD3u-xYPQpxAHWOoB4Wx~8Kvuh6WfnkEvm4VpfB-XbT-2aac1ybkybPVjucAA8JkxEC10rMLSugBiziVXvxIDTrgXno9AmqiKopJkirO19zJMyposPBYsMWuFl6FEawi51wDY94OuOjS4S7e5CASO2mC01UxAvDMzgFhkIQObps3OsbyHYW9k6imjn5XIpzvAuS7EJR1VRmaZLDhbRpBIWV7KH320~CD7Q63rlovHWmP1B~ye9SmAYgTL96cJ2gfeGizJJxMDY935aWbSmtRMCCCSkfOVDgx7V9MYbQ~NRCq90PZXV9l42YiKGmxQljt2dg__"
+            alt="about"
+          />
+        </div>
+        <div class="about__grid">
+          <div class="about__card">
+            <h3>1.</h3>
+            <h4>Who we are</h4>
+            <p>
+              You get a 2-week free trail to kick the Smaert tries. We want you
+              to.
+            </p>
+          </div>
+          <div class="about__card">
+            <h3>2.</h3>
+            <h4>What do we do</h4>
+            <p>
+              We give you a free course that guides you through the process.
+            </p>
+          </div>
+          <div class="about__card">
+            <h3>3.</h3>
+            <h4>How do we help</h4>
+            <p>Use our multimedis lectures, videos, and coaching sessions.</p>
+          </div>
+          <div class="about__card">
+            <h3>4.</h3>
+            <h4>Create success story</h4>
+            <p>
+              With access to online learning resources anyone can transform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container product__container" id="product">
+      <h2 class="section__header">Products</h2>
+      <div class="product__grid">
+        <div class="product__card">
+          <h4>Stackable Chair</h4>
+          <p>$87.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//a3f20175e4b541c3/product-1.png?Expires=1734354383&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=Mt9c-WWftvlTHW1cQFJJG6-f9GJVwG6OqOoRNu-37DJo-AZtsJJkUFSt0EEmLgs1fGzrsTOxBmmbERbIHoVv0d7YxraHVS7BKJHW8RYNtfZTcS0PDKXtr62v0Kai~VTD83wofxEPGinJJFtBp4b-etSHQu9fxE2ducrzmU8SVoDpEzqoM0NvATby65QFWnAv-~x-T04veYD9JRxFnsDYP35UvQBHAhNEsGmPRD5Vja71OfEg3BvAUQDa2fbSLkmFczNuVhOev6G328OtDrCk2mJr5eFo5cvsESTpivpS0ue3dY1d2iAAahuXYkoLx-bvnGyHovKV~FUoGerXzaA8Zg__"
+            alt="product"
+          />
+        </div>
+        <div class="product__card">
+          <h4>Lamp Tool</h4>
+          <p>$35.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//09e64e78c73b49dc/product-2.png?Expires=1734354423&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=SpnS4Jcv5wTqNES9dBFxD0isHwN7jUsWEfAfh3KJ-E5ZmdyTV26cMOvtLx91xW1SkBq0jzHfpgMAH77XOXKCq9Aejt4HjwLRvg7W4sJO2nGbxnU~PcTvpL5KcRXPfAokzlozryYjJw5sAX7nxjrLjtHSwzuZEAJSfiqzSBr9kanjDhviL2WDVYLyVJS5jnrl5B3jugkGvcwqNmgrv4yO9QtPt6FGG97dLwkFcr8k9XUC7VFyOIIpUlIzlfBKqe3BGfL2znBBWGOArIFOlACW7qZJTDOq-317-zFWNCo0qeg37udeGnwPtD-pWVD2AiQVE2rH4S~09jN4k0TLoQI2IQ__"
+            alt="product"
+          />
+        </div>
+        <div class="product__card">
+          <h4>Dining Chair</h4>
+          <p>$55.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//b5787b18a64f4a12/product-3.png?Expires=1734354481&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=czXyNZhKZWLciNOsRVzDhXOL4zz0uIDd2jNv1CHU2Y63CXHZoPj1vZ9Q5dkdsBC8nfrxzzAyYHmiOnNo4IKWgc7Vs2WmWtr2HatNG8QdzVMVMZJ600ssbrjNSd8fOKfjlAXTlKTNOMINpPgrYAVFubpaegs5vaFilvEXja-HYm~d-E7pO0xd-Xt8~bE5sz9HRo16-U2SxtAHP2NKq~KMXAq-NZ4CXZbOk0dmfpNe7NRCqVZWrO8ocyGVSik5UBj4hzTBgRRisn~qWop7mEpmw3ARdZtB35W9vgVa3XSIN7qcpSuIywjxp5XJYQ3jyWaddvgHOGKrtF5vyV5iPpqO5A__"
+            alt="product"
+          />
+        </div>
+        <div class="product__card">
+          <h4>Hand Base Lamp</h4>
+          <p>$35.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//0231528ccd7c4da5/product-4.png?Expires=1734354520&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=C1QGcg6jyD4c4T1unFv3nGPiAWzc3Ep1qm8WKQn23XUU-uN3J~LO56UhMRCvj3Cm2Cq4pHe8jsZgAH03Lw8Vn0vhEtrM3QJXwFrm5q6VFhxwdM1qF33-kOpcr89yhUoU1P~VPICcP2WHEZSwPPoF0iOMoUc8bJR~Uu3dawJIoNWBVLehRSF2sj3LRCkF0eXuqCEjlhomrIaNa8IazCawGq0dNdoMk67y8cpI1pqHSKoMuSaNn48kguPihMw6J9ig-Nqw~fQVwTIwQ3bq1TqrDps3E0aC4Gi4JkioGGMA1CZcvT6mOY6MMfM6rqLt2YXeNd7sE6VlD8Yvz3clNHy7Cg__"
+            alt="product"
+          />
+        </div>
+        <div class="product__card">
+          <h4>Stylish Chair</h4>
+          <p>$45.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//e90f8e0f8e15470a/product-5.png?Expires=1734354570&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=yfyZuTgwRErA5d4lPV9y-nM6BuPLont2rv3zlK3GKGchphozgoQQ62~OpXdi35QJAkwb-pJQNnDSCoZdIwjim6SClVUleE3J-Vn20YxrkGF4mTgpweDagVB-4kKGIVhGsm0EsyF-0L0l3fZq99yebGE8eUAEa5OraaOo4DCS~jJlRIIjztsKjbe84eIR75yyA8ElmzT7PsnCHU3AC6wkc2adpeb34IcLVLsuupog5Q9Ahbf5xnhRDbG1V4NWo7EaITrgQ5W6N7ihK4189kDpqxclpxyXNzou9vI4dzY9fLHV023MZRSEIFo6N7AN9XYQ9Y1r3XFiOOzgW-amXi6Z7w__"
+            alt="product"
+          />
+        </div>
+        <div class="product__card">
+          <h4>Vintage Chair</h4>
+          <p>$65.00</p>
+          <img
+            src="https://media-hosting.imagekit.io//a9f90f0402644464/product-6.png?Expires=1734354598&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=E97GwtzXneV5SsAEm-ddZf698wTPiCX3EpdxaM09iCEvGzHHwBFMcX5b8oPyH1J-42O7Ei88NYlZlahftpH0V-970xBOJZgKVBPt9fKO~2AwKhVuI8Lm7VwQbOxAqqPxuGDUUXa2qdaPOz527rWvl9fLoEQ70cLFrsP9l8EwQ1Z1UvvEeAMI1-MDcnirF7if~QDGXYEgrh1Ok5~zMMhGUMOklLT3-THiKIPu9WIs8QFDD6ndbaSMdcNSr9xzP3YVxFbzMZlpNu5HdXoFdAcvf-dlkvdNOXD0-3bRwXDjD60IVUirwGoKAvvvHcCKrKvtqjDVTHFzCzrbCOb9KU3NHw__"
+            alt="product"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container client__container">
+      <div class="client__content">
+        <h2 class="section__header">What our happy client say</h2>
+        <p class="section__description">
+          Testimonials Highlighting Our Commitment to Quality, Exceptional
+          Service, and Customer Satisfaction
+        </p>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="client__card">
+                <img
+                  src="https://media-hosting.imagekit.io//f469bd950a17415f/user-1.jpg?Expires=1734354629&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=D5Go~JQxpwt8p-ZhWgwkfTNSH3w5vXzScgqYDwg6xTosHYZdiGWNQuDVpF7v6B4HgG23bLrR3BSqo2owFvSO-NVQKF3niFpL~gsivK67M7UctX-BbQzJFo1I-CbCPOqkzbcbpPTUyKYyPR-TM3qOevEpVTHEN34JOrw5O0G2flCYuf885xHAR0e1rHvyOAhsLeIRopbVykI6nFZqBbGn5c5Mhp5AVS9hRmlTLPMtLZwMuCwQBNJ0mYmdmlrKwG8WuZ3frXDHGJHvpZbBvkHSL663vinkbfy9L1BIQwiNlsYT4Xr1EF-FiweV2Re7q~hhgxHiDFtpxyUdiWCEDrj7BQ__"
+                  alt="user"
+                />
+                <div>
+                  <p>
+                    Furni.shop transformed my living space with their beautiful
+                    and affordable furniture. The 5% cashback was a delightful
+                    bonus!
+                  </p>
+                  <h4>David Miller</h4>
+                  <h5>Real Estate Agent</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                <img
+                  src="https://media-hosting.imagekit.io//226fa36ae97e459b/user-2.jpg?Expires=1734354657&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=euzQahhM2Q~r8VpCbj3BH56ku4ikeBSkXGSjwVDnql76ZMGyTDod8yF4~35r-KlRngGbXQ5si1BmNBEzVIMAZMy~utx6mktyXPd30IUT2PK4YySI8GARGTHgT1cGRbkgJVQzHp7lxqKx21jw~E0WXvvfIIZHIfZgnNE69nK3bq01fJ6krBi8u-oXFaTJ4LxMXQ1YpRCd-xgphiYXiim1qQBn8XGAsT3cXbHcSC1mlxfmT6wDKvoMdDPO0pSZoqOfFJQIxyVpiZs9QNmdLd3kwbFMWpc8cC1fEnAn4qXwHtfuL~Y-IunESDh1mkk16QQuY83lOeG2pKaD8MryOSxi3w__"
+                  alt="user"
+                />
+                <div>
+                  <p>
+                    Exceptional quality and service! The furniture is stunning,
+                    and the 30-day payment terms made it incredibly convenient.
+                  </p>
+                  <h4>Sarah Thompson</h4>
+                  <h5>Interior Designer</h5>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                <img
+                  src="https://media-hosting.imagekit.io//c2e897c524b34413/user-3.jpg?Expires=1734354708&amp;Key-Pair-Id=K2ZIVPTIP2VGHC&amp;Signature=oDGdtaH2QwNtbtCC49Qpzl8yXYXzC6QzmbPQbYdsKirRLNknuyz2s7XYNwMpDcDXY3OXcjeGN96JCxrgEaDVsoLqqRQ2eNoPZXcYEAF~kxjhpBjmj08CIQ0NDIb5farVCAFjODlou1CoDkCVt2ZcPrSKb24o3k3TXv2yPQv9dDwfbpiC1wgvG5afvMc4lGR03xi5PaAsXDxCrl~3IZdZpFcWGXC91nPCWnZGw2fWAWBng1ibTC6G-zFzNDnFkbKTdrxtBFEU9RCnoVQC~GCobr1xC1QtppWlIQF7SJWquBnnwyXFpoHOGA6bHa9HvymyvsoEjhPVIhkhd3eK5FDaaQ__"
+                  alt="user"
+                />
+                <div>
+                  <p>
+                    The 30-day terms made it easy for us to furnish our new home
+                    without financial stress. Highly recommended!
+                  </p>
+                  <h4>Michael Lee</h4>
+                  <h5>Entrepreneur</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">furni.shop</a>
+          </div>
+          <p>
+            Join us in transforming your living spaces with furniture that
+            blends elegance and practicality seamlessly.
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-twitter-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-linkedin-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-pinterest-fill"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul class="footer__links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Payrol</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Resources</h4>
+          <ul class="footer__links">
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <ul class="footer__links">
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Cancelation Policy</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__bar">
+        Assignments for the first semester Web-dev subject 🙏Thank you teacher
+      </p>
+    </footer>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const navLinks = document.getElementById("nav-links");
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", (e) => {
+        navLinks.classList.toggle("open");
+
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute(
+          "class",
+          isOpen ? "ri-close-line" : "ri-menu-line"
+        );
+      });
+
+      navLinks.addEventListener("click", (e) => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+
+      const navSearch = document.getElementById("nav-search");
+
+      navSearch.addEventListener("click", (e) => {
+        navSearch.classList.toggle("open");
+      });
+
+      const scrollRevealOption = {
+        distance: "50px",
+        origin: "bottom",
+        duration: 1000,
+      };
+
+      ScrollReveal().reveal(".header__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+      });
+      ScrollReveal().reveal(".header__content div", {
+        duration: 1000,
+        delay: 500,
+      });
+      ScrollReveal().reveal(".header__content h1", {
+        ...scrollRevealOption,
+        delay: 1000,
+      });
+      ScrollReveal().reveal(".header__content p", {
+        ...scrollRevealOption,
+        delay: 1500,
+      });
+
+      ScrollReveal().reveal(".deals__card", {
+        ...scrollRevealOption,
+        interval: 500,
+      });
+
+      ScrollReveal().reveal(".about__image img", {
+        ...scrollRevealOption,
+        origin: "right",
+      });
+      ScrollReveal().reveal(".about__card", {
+        duration: 1000,
+        interval: 500,
+        delay: 500,
+      });
+
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+      });
+    </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
+    </script>
+  </body>
+</html>
